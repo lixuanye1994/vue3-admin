@@ -1,8 +1,8 @@
 import Axios from "axios"
 import { ElMessage, ElLoading } from "element-plus"
 
-const baseURL = "http://localhost:7777/"
-//const baseURL = "http://ml-link.cn:7777/"
+//const baseURL = "http://localhost:7777/"
+const baseURL = "http://ml-link.cn:7777/"
 const Myaxios = Axios.create({
   baseURL,
   headers: {
