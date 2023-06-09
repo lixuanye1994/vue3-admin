@@ -63,6 +63,40 @@ const routes:Array<RouteRecordRaw> = [
                 },
             },
         ]
+    },
+    // 检查模块界面
+    {
+        path: '/check',
+        name: 'check',
+        component: Layout,
+        children: [
+            {
+                path:'/check',
+                component: () => import('../Layout/Check/Check.vue'),
+                name: 'check',
+                meta: {
+                    title: "VPN检查",
+                    icon: "DocumentChecked"
+                }
+            }
+        ]
+    },
+    // 白名单添加删除
+    {
+        path: '/whitelist',
+        name: 'whitelist',
+        component: Layout,
+        children: [
+            {
+                path:'/whitelist',
+                component: () => import('../Layout/whitelist/index.vue'),
+                name: 'whitelist',
+                meta: {
+                    title: "白名单",
+                    icon: "Key"
+                }
+            }
+        ]
     }
 ]
 

@@ -7,7 +7,12 @@ import { store,key } from './store'
 // 新增elementPlus 图标和 css
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'element-plus/dist/index.css'
+
+
+
 const app = createApp(App)
+
+app.config.globalProperties.getEnv =import.meta.env
 // 新增.use(router)
 app.use(router).use(store,key).mount('#app')
 

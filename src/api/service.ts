@@ -1,8 +1,8 @@
 import Axios from "axios"
 import { ElMessage, ElLoading } from "element-plus"
+import { showLoading,hideLoading } from "../utils/loading"
 
-const baseURL = "http://localhost:7777/"
-//const baseURL = "http://ml-link.cn:7777/"
+const baseURL = import.meta.env.VITE_BASIC_URL
 const Myaxios = Axios.create({
   baseURL,
   headers: {
@@ -12,19 +12,20 @@ const Myaxios = Axios.create({
 })
 
 
-
 // 前置拦截器（发起请求之前的拦截）
 Myaxios.interceptors.request.use(config => {
+  console.log(baseURL)
+  showLoading
 
-  // // 发送请求后 加载loading....转2秒
-  const Loading = ElLoading.service({
-    lock: true,
-    text: 'Loading',
-    background: 'rgba(0, 0, 0, 0.7)',
-  })
-  setTimeout(() => {
-    Loading.close()
-  }, 1000)
+  // 发送请求后 加载loading....转2秒
+  // const Loading = ElLoading.service({
+  //   lock: true,
+  //   text: 'Loading',
+  //   background: 'rgba(0, 0, 0, 0.7)',
+  // })
+  // setTimeout(() => {
+  //   Loading.close()
+  // }, 1000)
   // TODO list
   // 首次登陆可以无需操作任何事情
   // 登录之后需要操作token，在每次发送请求之前把本地token提取出来携带到请求中
@@ -37,6 +38,7 @@ Myaxios.interceptors.request.use(config => {
 
 // 后置拦截器（获取到响应时的拦截）
 Myaxios.interceptors.response.use(response => {
+  hideLoading
   
   // 拦截返回的code如果不是===200,判定自定义报错信息
   const { code, msg } = response.data

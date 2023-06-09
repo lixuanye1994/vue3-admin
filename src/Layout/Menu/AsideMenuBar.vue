@@ -74,6 +74,26 @@ let menuList= reactive([
             },
         ]
     },
+    {
+        path:'/check',
+        component:'Layout',
+        meta:{
+            title:"VPN检查",
+            icon:"DocumentChecked",
+            roles:["che:check"],
+            parentId:0,
+        }
+    },
+    {
+        path:'/whitelist',
+        component:'Layout',
+        meta:{
+            title:"白名单",
+            icon:"Key",
+            roles:["che:whitelist"],
+            parentId:0,
+        }
+    }
 ]);
 
 </script>

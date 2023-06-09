@@ -12,7 +12,7 @@ const isCollapse = computed(()=>{
 <template>
     <div class="logo">
         <img src="/vite.svg" alt="Vite logo" />
-        <span v-if="!isCollapse">ViteVue</span>
+        <span v-if="!isCollapse">IT小站</span>
         
     </div>
 </template>
